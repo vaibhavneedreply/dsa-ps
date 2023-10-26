@@ -24,8 +24,23 @@ const subStringUsingDefault = (s) => {
     return subStringArr;
 }
 
-// Substring using dynamic programming:
-const subStringUsingDP = (s) => {}
+// Substring using recursion:
+// const subStringUsingRecursion = (s) => {
+//     let subString = [];
+//     const generateSubString = (subString, index) => {
+//         if (index === s.length) {
+//             return;
+//         }
+//         for(let i = index; i < s.length; i++) {
+//             const newSubstring = s.substring(index, i + 1);
+//             subString.push(newSubstring);
+//             generateSubString(newSubstring, i + 1);
+//         }
+//         generateSubString(subString, index + 1);
+//     }
+//     generateSubString('', 0);
+//     return subString;
+// }
 
 
 console.log(subStringBruteForce('abc')); // a ab abc b bc c
@@ -34,6 +49,7 @@ console.log(subStringBruteForce('vaibhav'));
 console.log(subStringUsingDefault('abc')); // a ab abc b bc c
 console.log(subStringUsingDefault('vaibhav'));
 
-console.log(subStringUsingDP('abc')); // a ab abc b bc c
-console.log(subStringUsingDP('vaibhav'));
+// const allSubstrings = subStringUsingRecursion('abc');
+// console.log(allSubstrings); // a ab abc b bc c
+
 
