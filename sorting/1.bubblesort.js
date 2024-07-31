@@ -14,3 +14,18 @@ function bubbleSort(unsortedArr) {
 };
 
 console.log(bubbleSort(unsortedArr));
+
+function bubbleSort1(nums) {
+    let n = nums.length;
+    for(let i = 0; i < n; i++) {
+        for(let j = i + 1; j < n; j++) {
+            if(nums[i] > nums[j]) {
+                let temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+            }
+        }
+    }
+    return nums;
+}
+console.log(bubbleSort1(unsortedArr));

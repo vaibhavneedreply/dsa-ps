@@ -14,6 +14,7 @@ function mergeSort(unsortedArr) {
 }
 
 function merge(left, right) {
+    console.log(left, right);
     const result = [];
     let leftIndex = 0;
     let rightIndex = 0;
@@ -30,4 +31,16 @@ function merge(left, right) {
     return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex))
 }
 
-console.log(mergeSort(unsortedArr));
+// console.log(mergeSort(unsortedArr));
+
+
+function mergeSort1(nums) {
+    if(nums.length === 1) return nums;
+    let mid = Math.floor(nums.length / 2);
+    const left = nums.slice(0, mid)
+    const right = nums.slice(mid)
+
+    return merge(mergeSort1(left), mergeSort1(right))
+}
+
+console.log(mergeSort1([65,23,5,2,1,4,32]));
