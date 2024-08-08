@@ -31,3 +31,8 @@ Fib(n) => fib(n - 1) + fib(n - 2)   if n > 1
 - When calculating using iterative method each state will be calculated exactly once
 - But when calculation using recursion method F(n) will be called exponentially as input grows.
 - So recursion some time could be easy to write but can be expensive in terms of time and space that it takes.
+
+See image to understand the tracing tree/recursive tree of a function and understand the complexity.
+![alt text](image.png)
+
+
