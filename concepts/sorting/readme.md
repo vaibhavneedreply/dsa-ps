@@ -52,7 +52,77 @@
     - Move until all time are covered
 - Time complexity  - Best: O(n)   Worst: O(n ^ 2)
 - Space complexity - O(1)
+
 ## Merge sort
+# Merging:
+- before understanding merge sort we need to understand merging. Process of combining two sorted list into single sorted list.
+- list can be array or linkedlist
+eg:
+A       B       C (New list)
+2       5       2 < 5 => 2
+8       9       8 > 5 => 5
+15      12      8 < 9 => 8
+18      17      9 < 15 => 9
+                15 > 12 => 12
+                15 < 17 => 15
+                17 < 18 => 17
+Remaining add to the C so ans 2,5,8,9,12,15,17,18
+- Time taken => n log n
+# Iterative algo:
+merge(a,b,m,n){
+    i = 1;
+    j = 1;
+    k = 1;
+    if(a[i] < b[j]) {
+        c[k++] = a[i++]
+    } else {
+        c[k++] = b[j++]
+    }
+    for(; i <= m; i++) { // start from where ever is i this is to add reamining a elemenet if any
+        c[k++] = a[i]
+    } 
+    for(; j <= n; j++) { // start from where ever is j this is to add reamining b elemenet if any
+        c[k++] = b[j]
+    } 
+}
+
+- what if there are more then two list how to merge for eg:
+eg:
+A       B       C       D
+2       5       2       1
+8       9       8       5
+15      12      8       6
+18      17      9       10
+
+ans: first sort A => B > n than C => D > m than sort n => m => E sorted list
+note: we can also choose to go with A => C than B => D and than result or A => B => result => C => result => D
+hance there any many ways we can choose any of them
+
+- this is called 4 way merging // m way merging 
+- there are two way of merge sort 1. 2-way mergesort (Iterative process using loop) 2. normal mergesort (Recursive method)
+
+eg:
+    9   3   7   5   6   4   8   2
+    \   /   \   /   \   /   \   /
+    3   9   5   7   4   6   2   8
+    \           /   \           /
+    3   5   7   9   2   4   6   8
+    \                           /
+    2   3   4   5   6   7   8   9
+
+-> in unsorted single list wanted to do merge sort consider each element as a list 
+-> start comparing with each list
+
+# Recursive algo:
+RecursiveMerge(l, h) {
+    while(l < h) {
+        mid = floor(l + h / 2)
+        RecursiveMerge(l, mid)
+        RecursiveMerge(mid + 1, h)
+        merge(l, mid, h)
+    }
+}
+
 - Provides better efficiency then other three
 - Uses divide and conquer techniques
 - Start from dividing the list half
@@ -62,6 +132,19 @@
 - Complicated than other search
 - Time complexity  - Best: O(n log(n))   Worst: O(n log(n))
 - Space complexity - O(n)
+
+Pros:
+- Good for large size list (no other sort method can support large size data)
+- Linked List (Can merge two linked list without creating new list)
+- Stable (if elements are duplicate sorting will maintain the order)
+- Recursive => it its recursive its uses stack to store data => Tracing tree of given number will be O(log n) => O(n)
+
+Cons:
+- Extra space (not inplace sort)
+- No small problem (small problem is only having single element and we dont do anything). For merge sort it has observed that for small size list merge sort takes more time than insertion sort or bubble sort. But we should use insertion sort as it support linkedlist as well its stable in nature.
+
+
+
 ## Quick sort 
 - Uses divide and conquer techniques
 - Time complexity  - Best: O(n log(n))   Worst: O(n ^ 2)
