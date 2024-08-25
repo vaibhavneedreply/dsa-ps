@@ -152,7 +152,7 @@ Cons:
 - Pick any pivot value
  - move all higher value to its right and lesser to its left
  - Then divide the list from its pivot value
- - Do the same for both let and right list 
+ - Do the same for both left and right list 
  - then combine full list
 - Picking pivot point is really important it can make time complexity to O(n ^ 2)
 
